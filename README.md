@@ -51,6 +51,8 @@ The architecture of FT-Transformer has three main components:
 
  We trained the model with mentioned data 100 epochs and got 0.322 accuracy.
  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- IMPROVEMENT -->
 ## Improvement
 ### First improvement
@@ -102,11 +104,11 @@ The final submission is the result of 3 submissions voting by MODE() function. A
 <!-- CONTRIBUTORS -->
 ## Contributors
 
-Nguyen Thi Lan Huong - email@vnu.eu.vn
+Nguyen Thi Lan Huong - 22028151@vnu.eu.vn
 
-Nguyen Minh Dung - email@vnu.eu.vn
+Nguyen Minh Dung - 22028125@vnu.eu.vn
 
-Tran Thi Thuy - email@vnu.eu.vn
+Tran Thi Thuy - 22028302@vnu.eu.vn
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,7 +119,6 @@ Tran Thi Thuy - email@vnu.eu.vn
 
 Our code is based on [FT-Transformer] and some [top notebooks from Kaggle]. We also thank to [Kaggle] for orgainizing this competition and sharing datasets.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
