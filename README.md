@@ -41,7 +41,7 @@ We use FTTransformer (FeatureTokenizer + Transformer) in our baseline
 
 The architecture of FT-Transformer has three main components:
 
-- **Input Transformation or “Feature Tokenizer” :**Converts raw tabular data into embeddings with an additional `[CLS]` token for processing and final prediction.
+- **Input Transformation or “Feature Tokenizer”** :Converts raw tabular data into embeddings with an additional `[CLS]` token for processing and final prediction.
 - **Transformer Layers**: Multiple Transformer layers process these embeddings through self-attention mechanisms, which allows the model to learn inter-feature dependencies
 - **Output Prediction**: The final representation of the `[CLS]` (classification token) is used as the input for the prediction layer.This layer generates the final output, which could be a classification or regression result depending on the task.
 
