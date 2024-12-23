@@ -117,7 +117,7 @@ Tran Thi Thuy - 22028302@vnu.eu.vn
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Our code is based on [FT-Transformer] and some [top notebooks from Kaggle]. We also thank to [Kaggle] for orgainizing this competition and sharing datasets.
+Our code is based on [FT-Transformer] and some [top notebooks from Kaggle]. We also thank to [Kaggle] for organizing this competition and sharing datasets.
 
 
 
