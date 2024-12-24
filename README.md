@@ -30,6 +30,8 @@ The competition data is compiled into two sources, parquet files containing the 
 Beside that, SII (label) is defined based on PCIAT test, which includes 20 questions, each question can receive value from 0 - 5 points. In our baseline, instead of making SII prediction, we decided to predict PCIAT total mark and map it to SII. 
 <!-- DATA PROCESSING -->
 ## Data Processing
+
+### Baseline
 In baseline, we only use training normal tabular data (not include parquet). Additionally, we also drop some samples which has unreliable labels. SII comes from adding up scores from 20 questions in  PCIAT (Parent-Child Internet Addiction Test) , where each item is scored from 0 to 5. If even one question is missed from a record, we remove that entire record from our dataset. 
 
 We do this because the SII needs all 20 item scores to be accurate - missing even one score could lead to an incorrect SII value. This is an example of potential wrong label.
@@ -37,6 +39,7 @@ We do this because the SII needs all 20 item scores to be accurate - missing eve
 <!-- MODEL -->
 ## Model
 
+### Baseline
 We use FTTransformer (FeatureTokenizer + Transformer) in our baseline
 
 The architecture of FT-Transformer has three main components:
@@ -96,7 +99,34 @@ This improvement made overall score increasing from 0.354 to 0.369.
 
 ### Final improvement
 
-These gradient boosting model and our FT-Transformer is used in 3 phases ensemble training that made 3 submissions. + Diễn tả figure: On the screen now is the architecture of three ensemble model of votingRegressor: The first contains …, the second includes …., the last is ….
+These gradient boosting model and our FT-Transformer is used in 3 phases ensemble training that made 3 submissions.
+```python
+voting_model = VotingRegressor(estimators=[
+    ('lightgbm', LGBM_Model),
+    ('xgboost', XGB_Model),
+    ('catboost', CatBoost_Model),
+    ('ftt', FTT_Model),
+],weights=[4.0,4.0,5.0, 4.0])
+```
+
+```python
+voting_model = VotingRegressor(estimators=[
+    ('lightgbm', LGBM_Model),
+    ('xgboost', XGB_Model),
+    ('catboost', CatBoost_Model),
+    ('ftt', FTT_Model),
+    ('tabnet', TabNet_Model)
+],weights=[4.0,4.0,4.0, 3.0,5.0])
+```
+
+```python
+voting_model = VotingRegressor(estimators=[
+    ('lightgbm', LGBM_Model),
+    ('xgboost', XGB_Model),
+    ('catboost', CatBoost_Model),
+    ('tabnet', TabNet_Model)
+],weights=[4.0,3.0,5.0, 4.0])
+```
 
 The final submission is the result of 3 submissions voting by MODE() function. Adding 3 times votingregressors made overall score increasing from 0.3 to 0.43.
 
